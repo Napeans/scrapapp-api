@@ -1,0 +1,61 @@
+## Build results
+bin/
+obj/
+[Bb]uild/
+[Bb]uilds/
+
+## Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / VS Code
+.idea/
+.vscode/
+
+## NuGet
+packages/
+*.nupkg
+*.snupkg
+
+## ASP.NET
+App_Data/
+*.Publish.xml
+*.pubxml
+*.publishproj
+web.config.transform
+web.*.config
+
+## IIS / Hosting
+*.application
+*.deploy.cmd
+*.deploy.readme
+*.deployproj
+
+## Logs
+*.log
+
+## OS generated
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+## SQL / Local DB
+*.mdf
+*.ldf
+
+## Backup files
+*.bak
+*.tmp
+*.temp
+
+## Secrets / Environment
+appsettings.json
+appsettings.*.json
+secrets.json
+
+## Test results
+TestResults/
