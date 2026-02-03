@@ -72,3 +72,4 @@ D:\APPLICATIONS\NAPEANS\SCRAPMANAGEMENT\scrapapp-api\scrapapp-api\scrapapp-api\o
 D:\APPLICATIONS\NAPEANS\SCRAPMANAGEMENT\scrapapp-api\scrapapp-api\scrapapp-api\obj\Debug\scrapapp-api.csproj.CopyComplete
 D:\APPLICATIONS\NAPEANS\SCRAPMANAGEMENT\scrapapp-api\scrapapp-api\scrapapp-api\obj\Debug\scrapapp-api.dll
 D:\APPLICATIONS\NAPEANS\SCRAPMANAGEMENT\scrapapp-api\scrapapp-api\scrapapp-api\obj\Debug\scrapapp-api.pdb
+D:\APPLICATIONS\NAPEANS\SCRAPMANAGEMENT\scrapapp-api\scrapapp-api\scrapapp-api\obj\Debug\scrapapp-api.csproj.AssemblyReference.cache
