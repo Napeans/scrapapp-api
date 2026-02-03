@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.36631.11
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scrapapp-api", "scrapapp-api\scrapapp-api.csproj", "{C8B977A9-7AA8-4A48-9D71-78C118285804}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8B977A9-7AA8-4A48-9D71-78C118285804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B977A9-7AA8-4A48-9D71-78C118285804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B977A9-7AA8-4A48-9D71-78C118285804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B977A9-7AA8-4A48-9D71-78C118285804}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BFE9388-FAA6-4B74-9395-B1788B227AB1}
+	EndGlobalSection
+EndGlobal
