@@ -9,16 +9,17 @@ namespace scrapapp_api.Helper
     public static class JwtTokenHelper
     {
         private static readonly string SecretKey = "THIS_IS_A_VERY_SECURE_SECRET_KEY";
-        private static readonly string Issuer = "MyCompany";
-        private static readonly string Audience = "MyApiUsers";
+        private static readonly string Issuer = "ScrapApp";
+        private static readonly string Audience = "ScrapAppUsers";
 
-        public static string GenerateToken(string username)
+        public static string GenerateToken(int userId, string username)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
+            new Claim(ClaimTypes.NameIdentifier, userId.ToString()), // ✅ UserId
             new Claim(ClaimTypes.Name, username)
         };
 
@@ -33,4 +34,5 @@ namespace scrapapp_api.Helper
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
+
 }

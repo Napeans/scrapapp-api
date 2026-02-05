@@ -18,8 +18,14 @@ namespace scrapapp_api.Controllers
             // Example validation (replace with DB check)
             if (model.Username == "admin" && model.Password == "1234")
             {
-                var token = JwtTokenHelper.GenerateToken(model.Username);
-                return Ok(new { token });
+                int userId = 101; // from DB
+                var token = JwtTokenHelper.GenerateToken(userId, model.Username);
+
+                return Ok(new
+                {
+                    token,
+                    userId // optional: return separately
+                });
             }
 
             return Unauthorized();
