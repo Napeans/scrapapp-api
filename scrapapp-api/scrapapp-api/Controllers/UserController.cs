@@ -30,5 +30,7 @@ namespace scrapapp_api.Controllers
             var data = await _dal.GetCity();
             return Ok(data);
         }
+
+
     }
 }
