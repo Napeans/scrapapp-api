@@ -94,7 +94,7 @@ namespace scrapapp_api.Controllers
             token.IsRevoked = true;
 
             var newRefreshToken = RefreshTokenHelper.Generate();
-           _dal.SaveRefreshToken(user.UserId, newRefreshToken, request.DeviceId);
+           await _dal.SaveRefreshToken(user.UserId, newRefreshToken, request.DeviceId);
 
             var newAccessToken = JwtTokenHelper.GenerateToken(user.UserId, user.MobileNumber.ToString());
 
