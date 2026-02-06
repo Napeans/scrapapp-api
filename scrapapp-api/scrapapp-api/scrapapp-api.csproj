@@ -157,6 +157,10 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Global.asax" />
+    <Content Include="Images\cpu.jpg" />
+    <Content Include="Images\imageNotAvailable.png" />
+    <Content Include="Images\Iron.jpg" />
+    <Content Include="Images\softImages.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

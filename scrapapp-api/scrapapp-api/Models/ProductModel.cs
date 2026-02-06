@@ -5,6 +5,11 @@ using System.Web;
 
 namespace scrapapp_api.Models
 {
+
+    public class ProductDetails {
+        public IEnumerable<ProductDetailsModel> productDetailsModels { get; set; }
+        public IEnumerable<Mst_Scrap_Type> mst_Scrap_Types { get; set; }
+    }
     public class Mst_Scrap_Type
     {
         public int ScrapTypeId { get; set; }
@@ -15,6 +20,7 @@ namespace scrapapp_api.Models
 
     public class ProductDetailsModel
     {
+       
         public int ProductId { get; set; }
         public int ScrapTypeId { get; set; }
         public string ProductName { get; set; }

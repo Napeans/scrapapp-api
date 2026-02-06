@@ -17,18 +17,25 @@ namespace scrapapp_api.Repository
             _dataService = new DapperDataService();
         }
 
-        public async Task<IEnumerable<Mst_Scrap_Type>> GetScrapType()
+        public async Task<List<Mst_Scrap_Type>> GetScrapType()
         {
             var parameters = new DynamicParameters();
 
 
 
-            return await _dataService.GetAllAsync<Mst_Scrap_Type>(
+            var list= await _dataService.GetAllAsync<Mst_Scrap_Type>(
                 "SELECT * FROM [Mst_Scrap_Type]",
                 parameters
             );
 
+            var listData = list.ToList();
 
+            listData.Insert(0, new Mst_Scrap_Type
+            {
+                ScrapTypeId = 0,
+                ScrapType = "All"
+            });
+            return listData;
         }
 
 

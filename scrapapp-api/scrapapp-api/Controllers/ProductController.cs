@@ -1,4 +1,5 @@
-﻿using scrapapp_api.Repository;
+﻿using scrapapp_api.Models;
+using scrapapp_api.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,23 +14,19 @@ namespace scrapapp_api.Controllers
     public class ProductController : ApiController
     {
         private readonly ProductRepository _dal;
-        public ProductController() {
-            _dal = new ProductRepository();
-        }
-        [HttpGet]
-        [Route("GetScrapType")]
-        public async Task<IHttpActionResult> GetScrapType()
+        public ProductController()
         {
-            var data = await _dal.GetScrapType();
-            return Ok(data);
+            _dal = new ProductRepository();
         }
 
         [HttpGet]
         [Route("GetProductDetails/{CityId:int}")]
         public async Task<IHttpActionResult> GetProductDetails(int CityId)
         {
-            var data = await _dal.GetProductDetails(CityId);
-            return Ok(data);
+            ProductDetails productDetails = new ProductDetails();
+            productDetails.mst_Scrap_Types = await _dal.GetScrapType();
+            productDetails.productDetailsModels = await _dal.GetProductDetails(CityId);
+            return Ok(productDetails);
         }
     }
 }
