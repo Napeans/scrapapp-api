@@ -23,10 +23,14 @@ namespace scrapapp_api.Controllers
         [Route("GetProductDetails/{CityId:int}")]
         public async Task<IHttpActionResult> GetProductDetails(int CityId)
         {
-            ProductDetails productDetails = new ProductDetails();
-            productDetails.mst_Scrap_Types = await _dal.GetScrapType();
-            productDetails.productDetailsModels = await _dal.GetProductDetails(CityId);
-            return Ok(productDetails);
+            var result = await _dal.GetProductDetails(CityId);
+
+            return Ok(new ProductDetails()
+            {
+                mst_Scrap_Types = result.Item1,
+                productDetailsModels = result.Item2,
+                CacheKey=result.Item3
+            });
         }
     }
 }

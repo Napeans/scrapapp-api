@@ -30,6 +30,16 @@ namespace scrapapp_api.Controllers
             var data = await _dal.GetCity();
             return Ok(data);
         }
+        [HttpGet]
+        [Route("GetSettings")]
+        public async Task<IHttpActionResult> GetSettings(string key)
+        {
+            var data = await _dal.getSettings(key);
+            return Ok(data);
+        }
+
+
+
 
 
     }

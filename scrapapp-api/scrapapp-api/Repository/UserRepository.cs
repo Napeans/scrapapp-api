@@ -67,6 +67,29 @@ namespace scrapapp_api.Repository
         }
 
 
+        public async Task<IEnumerable<Mst_Settings>> getSettings(string key)
+        {
+           
+
+            if (key == null)
+            {
+                return await _dataService.GetAllAsync<Mst_Settings>(
+                    "select * from Mst_Settings",
+                    null
+                );
+            }
+            else {
+                var parameters = new DynamicParameters();
+                parameters.Add("@key", key);
+                return await _dataService.GetAllAsync<Mst_Settings>(
+               "select * from Mst_Settings where [Key]=@Key",
+               parameters
+           );
+            }
+
+
+        }
+
         public async void RevokedToken(string Token)
         {
             var parameters = new DynamicParameters();

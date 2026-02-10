@@ -3,6 +3,7 @@ using scrapapp_api.Common;
 using scrapapp_api.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -38,42 +39,21 @@ namespace scrapapp_api.Repository
             return listData;
         }
 
-
-        public async Task<IEnumerable<ProductDetailsModel>> GetProductDetails(int CityId)
+        public async Task<(List<Mst_Scrap_Type>, List<ProductDetailsModel>, string)> GetProductDetails(int CityId)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("@CityId", CityId);
-
-            string query = @"SELECT
-    a.ProductId,
-    a.ScrapTypeId,
-    a.ProductName,
-    a.ProductImage,
-    a.OrderBy,
-    b.MarketPrice,
-    b.OurPrice,
-    b.QuantityPerPrice
-    --b.RevisedDate
-FROM Mst_Products a
-INNER JOIN
-(
-    SELECT *,
-           ROW_NUMBER() OVER (
-               PARTITION BY ProductId
-               ORDER BY 
-                   ISNULL(RevisedDate, '19000101') DESC,
-                   ProductPriceId DESC
-           ) AS rn
-    FROM Mst_Product_Price
-    WHERE CityId = @CityId
-) b
-ON a.ProductId = b.ProductId
-WHERE b.rn = 1;
-";
-
-            return await _dataService.GetAllAsync<ProductDetailsModel>(query, parameters);
-
-
+            parameters.Add("@CityID", CityId);
+            using (var multi = await _dataService.QueryMultipleAsync(
+                "GETProductList",
+                parameters,
+                CommandType.StoredProcedure))
+            {
+                var scrapTypes = (await multi.ReadAsync<Mst_Scrap_Type>()).AsList();
+                var scrapCategories = (await multi.ReadAsync<ProductDetailsModel>()).AsList();
+                var cacheKey =
+         await multi.ReadFirstOrDefaultAsync<string>();
+                return (scrapTypes, scrapCategories, cacheKey);
+            }
         }
     }
 }

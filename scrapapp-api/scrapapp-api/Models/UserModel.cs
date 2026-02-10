@@ -23,6 +23,12 @@ namespace scrapapp_api.Models
         public string RefreshToken { get; set; }
         public string DeviceId { get; set; }
     }
+    public class Mst_Settings
+    {
+        public int SettingsId { get; set; }
+        public string Key { get; set; }
+        public string Value { get; set; }
+    }
     public class Mst_Users
     {
         public int UserId { get; set; }
