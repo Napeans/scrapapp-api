@@ -28,8 +28,7 @@ namespace scrapapp_api.Controllers
             return Ok(new ProductDetails()
             {
                 mst_Scrap_Types = result.Item1,
-                productDetailsModels = result.Item2,
-                CacheKey=result.Item3
+                productDetailsModels = result.Item2
             });
         }
     }

@@ -39,7 +39,7 @@ namespace scrapapp_api.Repository
             return listData;
         }
 
-        public async Task<(List<Mst_Scrap_Type>, List<ProductDetailsModel>, string)> GetProductDetails(int CityId)
+        public async Task<(List<Mst_Scrap_Type>, List<ProductDetailsModel>)> GetProductDetails(int CityId)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@CityID", CityId);
@@ -50,9 +50,7 @@ namespace scrapapp_api.Repository
             {
                 var scrapTypes = (await multi.ReadAsync<Mst_Scrap_Type>()).AsList();
                 var scrapCategories = (await multi.ReadAsync<ProductDetailsModel>()).AsList();
-                var cacheKey =
-         await multi.ReadFirstOrDefaultAsync<string>();
-                return (scrapTypes, scrapCategories, cacheKey);
+                return (scrapTypes, scrapCategories);
             }
         }
     }

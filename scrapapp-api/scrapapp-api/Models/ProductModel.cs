@@ -7,7 +7,6 @@ namespace scrapapp_api.Models
 {
 
     public class ProductDetails {
-        public string CacheKey { get; set; }
         public IEnumerable<ProductDetailsModel> productDetailsModels { get; set; }
         public IEnumerable<Mst_Scrap_Type> mst_Scrap_Types { get; set; }
     }
